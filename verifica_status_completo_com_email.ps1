@@ -107,13 +107,13 @@ $smtpBody = $htmlHeader + $statusServidores + $statusBackup + $statusJsonMaxima 
 # =============================
 # 5. Enviar e-mail
 # =============================
-$smtpServer = "smtp.armazemdc.inf.br"
-$smtpFrom = "teste@agrosandri.com.br"
-$smtpTo = "teste@agrosandri.com.br"
+$smtpServer = "smtp server"
+$smtpFrom = "desse_email"
+$smtpTo = "para_esse_email"
 $smtpSubject = "Relatório diário - Status dos Servidores, Backups e Arquivos Máxima"
-$smtpPort = 587
-$smtpUser = "teste@agrosandri.com.br"
-$smtpPass = "sandri@123"
+$smtpPort = "porta_smtp"
+$smtpUser = "email"
+$smtpPass = "senha_do_email"
 
 $mailmessage = New-Object system.net.mail.mailmessage
 $mailmessage.from = ($smtpFrom)
