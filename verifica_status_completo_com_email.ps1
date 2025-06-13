@@ -4,13 +4,13 @@
 # 1. Verificar status dos WTS e outros servidores
 # =============================
 $servidores = @(
-    @{ Nome = "WTS MATRIZ"; IP = "172.16.1.240" },
-    @{ Nome = "WTS PROTHEUS"; IP = "172.16.1.220" },
-    @{ Nome = "WTS COYOTE"; IP = "172.16.4.222" },
-    @{ Nome = "WTS CARAZINHO"; IP = "172.16.5.222" },
-    @{ Nome = "WTS ALFREDO WAGNER"; IP = "172.16.3.240" },
-    @{ Nome = "WTS MACHS"; IP = "177.221.67.222" },
-    @{ Nome = "WTS SCI-CONTABILIDADE"; IP = "172.16.1.232" }
+    @{ Nome = "WTS MATRIZ"; IP = "ip" },
+    @{ Nome = "WTS PROTHEUS"; IP = "ip" },
+    @{ Nome = "WTS COYOTE"; IP = "ip" },
+    @{ Nome = "WTS CARAZINHO"; IP = "ip" },
+    @{ Nome = "WTS ALFREDO WAGNER"; IP = "ip" },
+    @{ Nome = "WTS MACHS"; IP = "ip" },
+    @{ Nome = "WTS SCI-CONTABILIDADE"; IP = "ip" }
 )
 
 foreach ($srv in $servidoresOutros) {
@@ -27,8 +27,8 @@ $statusServidores += "</ul>"
 # 2. Verificar backups dos PDVs
 # =============================
 $pastasBackup = @(
-    @{ Nome = "PDV TAIO"; Caminho = "\\172.16.1.240\backup_pdv" },
-    @{ Nome = "PDV ALFREDO WAGNER"; Caminho = "\\172.16.3.240\backup_pdv" }
+    @{ Nome = "PDV TAIO"; Caminho = "caminho" },
+    @{ Nome = "PDV ALFREDO WAGNER"; Caminho = "caminho" }
 )
 
 $statusBackup = "<h3>📦 STATUS DOS BACKUPS DE PDV:</h3>"
@@ -54,7 +54,7 @@ foreach ($pasta in $pastasBackup) {
 # 3. Verificar arquivos TXT da Máxima
 # =============================
 $statusJsonMaxima = "<h3>📂 ÚLTIMOS ARQUIVOS DO ENDPOINT DA MÁXIMA:</h3><ul>"
-$pastaJson = "\\172.16.1.220\temp\"
+$pastaJson = "caminho"
 
 if (Test-Path $pastaJson) {
     $arquivosTxt = Get-ChildItem -Path $pastaJson -Filter *.txt | Sort-Object LastWriteTime -Descending
@@ -92,13 +92,13 @@ $smtpBody = $htmlHeader + $statusServidores + $statusBackup + $statusJsonMaxima 
 # =============================
 # 5. Enviar e-mail
 # =============================
-$smtpServer = "smtp.armazemdc.inf.br"
-$smtpFrom = "maicon.kotkoski@agrosandri.com.br"
-$smtpTo = "paulo.dolzan@agrosandri.com.br"
+$smtpServer = "smtp"
+$smtpFrom = "de"
+$smtpTo = "para"
 $smtpSubject = "Relatório diário - Status dos Servidores, Backups e Arquivos Máxima"
-$smtpPort = 587
-$smtpUser = "maicon.kotkoski@agrosandri.com.br"
-$smtpPass = "sandri@123"
+$smtpPort = porta_smtp
+$smtpUser = "usuario"
+$smtpPass = "senha"
 
 $mailmessage = New-Object system.net.mail.mailmessage
 $mailmessage.from = ($smtpFrom)
