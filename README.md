@@ -1,0 +1,1 @@
+Powershell criado com intuito de automatizar uma rotina de checklist matinal que era feito na minha empresa, agora através desse powershell ele verifica os status dos servidores e status dos backups de pdv e endpoint da maxima automaticamente e envia pro email da ti sem necessariamente eu ir la e ver cada um todos os dias isso me fez economizar uns 20 minutos todos os dias :)
